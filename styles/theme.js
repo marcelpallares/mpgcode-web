@@ -1,0 +1,19 @@
+const MainTheme = {
+  grayBg: "#f8f7f7",
+  placeholderGray: "#dddddd",
+  lightGray: "#e4e4e4",
+  borderGray: "#d8d8d8",
+  placeholder: "#9c9c9c",
+  footerBg: "rgba(0, 0, 0, 0.85)",
+  black: "#363636",
+  blackBody: "#4a4a4a",
+  label: "#646464",
+  white: "#fff",
+  whiteHover: "#fafafa",
+  whiteHover2: "#ebeaec",
+  iconColor: "#9f9f9f",
+  overlay: "rgba(10, 10, 10, 0.86)",
+  error: "#f14668",
+};
+
+export { MainTheme };

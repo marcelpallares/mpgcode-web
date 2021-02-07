@@ -1,0 +1,90 @@
+{
+  "name": "mpgcode-web",
+  "version": "1.0.0",
+  "description": "MPGCode website using React & Next.js",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "local": "next dev -p 1994",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.1.2",
+    "react-scripts": "^3.4.3"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^1.7.1",
+    "i18next": "^19.8.7",
+    "next": "^9.5.3",
+    "nprogress": "^0.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
+    "react-i18next": "^11.8.5",
+    "styled-components": "^5.1.1",
+    "universal-cookie": "^4.0.3"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "babel-plugin-styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "babel-plugin-styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "test": {
+        "presets": [
+          [
+            "next/babel",
+            {
+              "preset-env": {
+                "modules": "commonjs"
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "babel-plugin-styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
