@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "local": "next dev -p 1994",
+    "posts_files_to_public": "rsync -av --exclude=*.mdx ./posts/ public/posts",
+    "local": "npm run posts_files_to_public && next dev -p 1994",
     "build": "next build",
     "start": "next start"
   },
@@ -22,8 +23,12 @@
     "react-scripts": "^3.4.3"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.5.1",
+    "@mdx-js/runtime": "^1.6.22",
+    "@next/mdx": "^10.0.5",
     "babel-core": "^6.26.3",
     "babel-plugin-styled-components": "^1.7.1",
+    "gray-matter": "^4.0.2",
     "i18next": "^19.8.7",
     "next": "^9.5.3",
     "nprogress": "^0.2.0",

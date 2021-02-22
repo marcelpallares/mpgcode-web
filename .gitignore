@@ -37,3 +37,5 @@ packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 
 *.output.css
+public/posts/
+env.*
