@@ -5,7 +5,10 @@ import PostImage from "./PostImage";
 import { isLiveEnv } from "../utils/helpers";
 import { isFuture } from "../utils/dateUtils";
 
-const BlogPost = ({ post: { title, slug, content, isDraft, date } }) => {
+const BlogPost = ({
+  post: { title, slug, content, isDraft, date },
+  locale,
+}) => {
   const visibleFrom = new Date(date);
 
   // Post remains unpublished when is draft or when date is in the future
@@ -13,7 +16,7 @@ const BlogPost = ({ post: { title, slug, content, isDraft, date } }) => {
     (isLiveEnv && isDraft) || (isLiveEnv && isFuture(visibleFrom));
 
   const components = {
-    img: (props) => <PostImage slug={slug} {...props} />,
+    img: (props) => <PostImage slug={slug} locale={locale} {...props} />,
     em: (props) => <PostEmphasis {...props} />,
     a: (props) => <ExternalLink {...props} />,
   };

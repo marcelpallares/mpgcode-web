@@ -1,5 +1,5 @@
-const PostImage = ({ slug, src, ...otherProps }) => {
-  return <img src={`posts/${slug}/${src}`} {...otherProps} />;
+const PostImage = ({ slug, src, locale, ...otherProps }) => {
+  return <img src={`posts/${locale}/${slug}/${src}`} {...otherProps} />;
 };
 
 export default PostImage;

@@ -1,7 +1,7 @@
 import BlogPost from "../components/BlogPost";
 import { getPostBySlug, getAllPosts } from "../utils/blogUtils";
 
-const PostPage = ({ post }) => <BlogPost post={post} />;
+const PostPage = ({ post, locale }) => <BlogPost post={post} locale={locale} />;
 
 export default PostPage;
 
@@ -11,8 +11,8 @@ export default PostPage;
  * 2 - getStaticProps -> for each of the recovered slugs
  * It gets rebuilt after 1 second each time someone visits a blog post.
  */
-export const getStaticPaths = async () => {
-  const posts = getAllPosts(["slug"]);
+export const getStaticPaths = async ({ locales }) => {
+  const posts = getAllPosts(locales, ["slug"]);
 
   return {
     paths: posts.map((post) => {
@@ -24,8 +24,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params: { slug } }) => {
-  const post = getPostBySlug(slug, [
+export const getStaticProps = async ({ locale, params: { slug } }) => {
+  const post = getPostBySlug(locale, slug, [
     "slug",
     "content",
     "title",
@@ -38,8 +38,15 @@ export const getStaticProps = async ({ params: { slug } }) => {
     "isDraft",
   ]);
 
+  if (!post) {
+    return {
+      // returns the default 404 page with a status code of 404
+      notFound: true,
+    };
+  }
+
   return {
-    props: { post },
+    props: { post, locale },
     revalidate: 1, // In seconds
   };
 };

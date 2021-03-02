@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 const Meta = ({ title, description, robots }) => {
   const { t } = useTranslation();
@@ -16,8 +16,8 @@ const Meta = ({ title, description, robots }) => {
         </>
       ) : (
         <>
-          <title>{t("meta.title")}</title>
-          <meta property="og:title" content={t("meta.title")} key="title" />
+          <title>{t("meta_title")}</title>
+          <meta property="og:title" content={t("meta_title")} key="title" />
         </>
       )}
 
@@ -28,8 +28,8 @@ const Meta = ({ title, description, robots }) => {
         </>
       ) : (
         <>
-          <meta name="description" content={t("meta.description")} />
-          <meta property="og:description" content={t("meta.description")} />
+          <meta name="description" content={t("meta_description")} />
+          <meta property="og:description" content={t("meta_description")} />
         </>
       )}
 

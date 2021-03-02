@@ -1,4 +1,5 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styled from "styled-components";
 import Meta from "../components/Meta";
 import Caption from "../components/Caption";
@@ -15,12 +16,19 @@ const Container = styled.div`
 
 const Home = () => {
   const { t } = useTranslation();
+
   return (
     <Container>
       <Meta />
-      <Caption text={t("home.caption")} />
+      <Caption text={t("home_caption")} />
     </Container>
   );
 };
+
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export default Home;
