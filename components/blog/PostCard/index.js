@@ -12,15 +12,14 @@ import { getRelativeDate } from "../../../utils/dateUtils";
 const PostCard = ({
   locale,
   compact,
-  post: { title, slug, dateGmt, excerpt = null, coverImage = null } = {},
+  post: { title, slug, date, excerpt = null, coverImage = null } = {},
 }) => {
   const imageUrl = coverImage ? `url("${coverImage}")` : "";
 
   let subtitle = "";
-  if (dateGmt) {
-    const date = new Date(dateGmt);
+  if (date) {
     if (subtitle) subtitle += " | ";
-    subtitle += getRelativeDate(date);
+    subtitle += getRelativeDate({ locale, date: new Date(date) });
   }
 
   return (

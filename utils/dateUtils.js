@@ -1,12 +1,15 @@
 import TimeAgo from "javascript-time-ago";
 import es from "javascript-time-ago/locale/es";
+import en from "javascript-time-ago/locale/en";
 
+TimeAgo.addLocale(en);
 TimeAgo.addLocale(es);
-TimeAgo.setDefaultLocale("es");
+TimeAgo.setDefaultLocale("en");
 
-const timeAgo = new TimeAgo("es-ES");
-
-export const getRelativeDate = (date) => timeAgo.format(date);
+export const getRelativeDate = ({ locale, date }) => {
+  const timeAgo = new TimeAgo(locale);
+  return timeAgo.format(date);
+};
 
 export const isFuture = (date) => {
   const now = new Date();
