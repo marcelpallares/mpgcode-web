@@ -1,11 +1,11 @@
 import MDX from "@mdx-js/runtime";
-import ExternalLink from "./ExternalLink";
+import PostLink from "./PostLink";
 import PostEmphasis from "./PostEmphasis";
 import PostImage from "./PostImage";
-import { isLiveEnv } from "../utils/helpers";
-import { isFuture } from "../utils/dateUtils";
+import { isLiveEnv } from "../../utils/helpers";
+import { isFuture } from "../../utils/dateUtils";
 
-const BlogPost = ({
+const Post = ({
   post: { title, slug, content, isDraft, date },
   locale,
 }) => {
@@ -18,7 +18,7 @@ const BlogPost = ({
   const components = {
     img: (props) => <PostImage slug={slug} locale={locale} {...props} />,
     em: (props) => <PostEmphasis {...props} />,
-    a: (props) => <ExternalLink {...props} />,
+    a: (props) => <PostLink {...props} />,
   };
 
   return (
@@ -32,4 +32,4 @@ const BlogPost = ({
   );
 };
 
-export default BlogPost;
+export default Post;

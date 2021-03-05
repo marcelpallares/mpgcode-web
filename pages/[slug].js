@@ -1,7 +1,7 @@
-import BlogPost from "../components/BlogPost";
+import Post from "../components/blog/Post";
 import { getPostBySlug, getAllPosts } from "../utils/blogUtils";
 
-const PostPage = ({ post, locale }) => <BlogPost post={post} locale={locale} />;
+const PostPage = ({ post, locale }) => <Post post={post} locale={locale} />;
 
 export default PostPage;
 
@@ -12,7 +12,7 @@ export default PostPage;
  * It gets rebuilt after 1 second each time someone visits a blog post.
  */
 export const getStaticPaths = async ({ locales }) => {
-  const posts = getAllPosts(locales, ["slug"]);
+  const posts = getAllPosts({ locales, fields: ["slug"] });
 
   return {
     paths: posts.map((post) => {
@@ -25,18 +25,22 @@ export const getStaticPaths = async ({ locales }) => {
 };
 
 export const getStaticProps = async ({ locale, params: { slug } }) => {
-  const post = getPostBySlug(locale, slug, [
-    "slug",
-    "content",
-    "title",
-    "excerpt",
-    "date",
-    "coverImage",
-    "coverImageAlt",
-    "coverImageHeight",
-    "coverImageWidth",
-    "isDraft",
-  ]);
+  const post = getPostBySlug({
+    slug,
+    locale,
+    fields: [
+      "slug",
+      "content",
+      "title",
+      "excerpt",
+      "date",
+      "coverImage",
+      "coverImageAlt",
+      "coverImageHeight",
+      "coverImageWidth",
+      "isDraft",
+    ],
+  });
 
   if (!post) {
     return {

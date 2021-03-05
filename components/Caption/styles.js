@@ -14,7 +14,6 @@ const CaptionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   padding: 1em;
   box-sizing: border-box;
 `;

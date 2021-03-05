@@ -3,6 +3,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styled from "styled-components";
 import Meta from "../components/Meta";
 import Caption from "../components/Caption";
+import PostsList from "../components/blog/PostsList";
+import { getAllPosts } from "../utils/blogUtils";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const Container = styled.div`
   background-image: linear-gradient(
@@ -14,21 +17,36 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const Home = () => {
+const Home = ({ locale, posts }) => {
   const { t } = useTranslation();
 
   return (
     <Container>
       <Meta />
       <Caption text={t("home_caption")} />
+      <PostsList posts={posts} locale={locale} />
+      <LanguageSwitcher locale={locale} />
     </Container>
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
+/** Queries all the available posts and returns them to the page component.
+ * It gets rebuilt after 1 second each time someone visits the page.
+ */
+export const getStaticProps = async ({ locale, locales }) => {
+  const posts = getAllPosts({
+    locale,
+    fields: ["slug", "title", "excerpt", "date", "coverImage"],
+  });
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      locale,
+      posts,
+    },
+    revalidate: 1, // In seconds
+  };
+};
 
 export default Home;
