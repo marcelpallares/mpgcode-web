@@ -11,7 +11,8 @@ const Text = styled.h1`
 `;
 
 const CaptionContainer = styled.div`
-  display: flex;
+  display: block;
+  text-align: center;
   justify-content: center;
   align-items: center;
   padding: 1em;

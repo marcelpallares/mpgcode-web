@@ -1,9 +1,13 @@
+import Logo, { LogoStyles } from "../Logo";
 import { CaptionContainer, Text } from "./styles";
 
 const Caption = ({ text }) => {
   return (
     <CaptionContainer>
-      <Text>{text}</Text>
+      <Logo accent logoStyle={LogoStyles.horizontalShort} />
+      <div>
+        <Text>{text}</Text>
+      </div>
     </CaptionContainer>
   );
 };

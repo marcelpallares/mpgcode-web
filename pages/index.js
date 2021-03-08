@@ -8,12 +8,7 @@ import { getAllPosts } from "../utils/blogUtils";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const Container = styled.div`
-  background-image: linear-gradient(
-    45deg,
-    #ff9a9e 0%,
-    #fad0c4 99%,
-    #fad0c4 100%
-  );
+  background-color: ${(props) => props.theme.primary};
   height: 100vh;
 `;
 

@@ -1,4 +1,6 @@
 const MainTheme = {
+  primary: "#2c2c2c",
+  accent: "#ff0050",
   grayBg: "#f8f7f7",
   placeholderGray: "#dddddd",
   lightGray: "#e4e4e4",
