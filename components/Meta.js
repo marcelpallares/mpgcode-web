@@ -7,7 +7,7 @@ const Meta = ({ title, description, robots }) => {
     <Head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="shortcut icon" href="/images/favicon.ico" />
+      <link rel="shortcut icon" href="/images/favicon.png" />
 
       {title ? (
         <>
