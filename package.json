@@ -11,84 +11,29 @@
     "start": "next start"
   },
   "devDependencies": {
-    "eslint": "^7.12.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.14.0",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.1.2",
-    "react-scripts": "^3.4.3"
+    "prettier": "^2.2.1",
+    "react-scripts": "^4.0.3"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/runtime": "^1.6.22",
-    "@next/mdx": "^10.0.5",
-    "babel-core": "^6.26.3",
-    "babel-plugin-styled-components": "^1.7.1",
+    "@next/mdx": "^10.0.8",
     "gray-matter": "^4.0.2",
     "javascript-time-ago": "^2.3.4",
-    "next": "^10.0.5",
-    "next-i18next": "^8.0.3",
+    "next": "^10.0.8",
+    "next-i18next": "^8.1.0",
     "nprogress": "^0.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-ga": "^3.1.2",
-    "styled-components": "^5.1.1"
-  },
-  "babel": {
-    "env": {
-      "development": {
-        "presets": [
-          "next/babel"
-        ],
-        "plugins": [
-          [
-            "babel-plugin-styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      },
-      "production": {
-        "presets": [
-          "next/babel"
-        ],
-        "plugins": [
-          [
-            "babel-plugin-styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      },
-      "test": {
-        "presets": [
-          [
-            "next/babel",
-            {
-              "preset-env": {
-                "modules": "commonjs"
-              }
-            }
-          ]
-        ],
-        "plugins": [
-          [
-            "babel-plugin-styled-components",
-            {
-              "ssr": true,
-              "displayName": true
-            }
-          ]
-        ]
-      }
-    }
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
+    "styled-components": "^5.2.1"
   }
 }
