@@ -1,7 +1,7 @@
 import Router from "next/router";
 import NProgress from "nprogress";
 import { appWithTranslation } from "next-i18next";
-import Page from "../components/Page";
+import Page from "../components/common/Page";
 import "../styles/styles.scss";
 import "../node_modules/nprogress/nprogress.css";
 

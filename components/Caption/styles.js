@@ -5,7 +5,6 @@ const Text = styled.h1`
   display: inline;
   margin: 0;
   color: ${(props) => props.theme.white};
-  font-size: 2rem;
 `;
 
 const CaptionContainer = styled.div`

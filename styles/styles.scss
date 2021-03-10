@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://use.fontawesome.com/releases/v5.15.2/css/all.css');
 
 @mixin font($font-family, $font-weight, $font-style, $font-file) {
   @font-face {
@@ -10,8 +11,14 @@
 }
 
 // Import fonts
+@include font(FiraSans, 300, normal, "/fonts/Fira/FiraSans-Light");
+@include font(FiraSans, 300, italic, "/fonts/Fira/FiraSans-LightItalic");
 @include font(FiraSans, 400, normal, "/fonts/Fira/FiraSans-Regular");
 @include font(FiraSans, 400, italic, "/fonts/Fira/FiraSans-Italic");
+@include font(FiraSans, 500, normal, "/fonts/Fira/FiraSans-Medium");
+@include font(FiraSans, 500, italic, "/fonts/Fira/FiraSans-MediumItalic");
+@include font(FiraSans, 600, normal, "/fonts/Fira/FiraSans-SemiBold");
+@include font(FiraSans, 600, italic, "/fonts/Fira/FiraSans-SemiBoldItalic");
 @include font(FiraSans, 700, normal, "/fonts/Fira/FiraSans-Bold");
 @include font(FiraSans, 700, italic, "/fonts/Fira/FiraSans-BoldItalic");
 @include font(Montserrat, 600, normal, "/fonts/Montserrat/Montserrat-SemiBold");
@@ -23,6 +30,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-weight: 700;
 }
+
+// Colors
+$primary: #2c2c2c;
+$accent: #ff0050;
+$text: #4a4a4a;
+$input-arrow: $accent;
+$link: $accent;
+$navbar-burger-color: $accent;
 
 //General styles
 *:focus,

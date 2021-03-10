@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from "styled-components";
-import { MainTheme } from "../styles/theme";
+import { MainTheme } from "../../styles/theme";
 
 const PageContent = styled.div`
   min-height: 100vh;

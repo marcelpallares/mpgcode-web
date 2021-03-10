@@ -1,11 +1,11 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styled from "styled-components";
-import Meta from "../components/Meta";
+import Meta from "../components/common/Meta";
 import Caption from "../components/Caption";
 import PostsList from "../components/blog/PostsList";
 import { getAllPosts } from "../utils/blogUtils";
-import LanguageSwitcher from "../components/LanguageSwitcher";
+import LanguageSwitcher from "../components/common/LanguageSwitcher";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primary};
