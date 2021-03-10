@@ -1,4 +1,4 @@
-import Logo, { LogoStyles } from "../Logo";
+import Logo, { LogoStyles } from "../../common/Logo";
 import { CaptionContainer, Text } from "./styles";
 
 const Caption = ({ text }) => {

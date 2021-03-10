@@ -2,26 +2,21 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styled from "styled-components";
 import Meta from "../components/common/Meta";
-import Caption from "../components/Caption";
+import Caption from "../components/home/Caption";
 import PostsList from "../components/blog/PostsList";
 import { getAllPosts } from "../utils/blogUtils";
 import LanguageSwitcher from "../components/common/LanguageSwitcher";
-
-const Container = styled.div`
-  background-color: ${(props) => props.theme.primary};
-  height: 100vh;
-`;
 
 const Home = ({ locale, posts }) => {
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <div>
       <Meta />
       <Caption text={t("home_caption")} />
       <PostsList posts={posts} locale={locale} />
       <LanguageSwitcher locale={locale} />
-    </Container>
+    </div>
   );
 };
 

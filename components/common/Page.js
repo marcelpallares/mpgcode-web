@@ -1,14 +1,12 @@
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { MainTheme } from "../../styles/theme";
-
-const PageContent = styled.div`
-  min-height: 100vh;
-`;
+import Navbar from "./Navbar";
 
 const Page = ({ children }) => {
   return (
     <ThemeProvider theme={MainTheme}>
-      <PageContent>{children}</PageContent>
+      <Navbar />
+      <div>{children}</div>
     </ThemeProvider>
   );
 };

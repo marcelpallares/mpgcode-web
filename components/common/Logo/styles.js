@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledSVG = styled.svg`
-  height: 50px;
   fill: ${(props) => props.theme.primary};
 
   &.white {

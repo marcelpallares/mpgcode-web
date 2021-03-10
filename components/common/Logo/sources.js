@@ -1,7 +1,11 @@
 import { StyledSVG } from "./styles";
 
-export const Infotipo = ({ className }) => (
-  <StyledSVG viewBox="0 0 172.91 174.96" className={className}>
+export const Infotipo = ({ className, height }) => (
+  <StyledSVG
+    viewBox="0 0 172.91 174.96"
+    className={className}
+    style={{ height }}
+  >
     <path
       className="st0"
       d="M171.45,54.55c-0.39-14.7-6.5-28.3-17.28-38.38C143.14,5.84,128.71,0.63,113.58,1.54
@@ -37,8 +41,12 @@ export const Infotipo = ({ className }) => (
   </StyledSVG>
 );
 
-export const Horizontal = ({ className }) => (
-  <StyledSVG viewBox="0 0 314.65 79.35" className={className}>
+export const Horizontal = ({ className, height }) => (
+  <StyledSVG
+    viewBox="0 0 314.65 79.35"
+    className={className}
+    style={{ height }}
+  >
     <g>
       <g>
         <path
@@ -153,8 +161,8 @@ export const Horizontal = ({ className }) => (
   </StyledSVG>
 );
 
-export const Horizontal2 = ({ className }) => (
-  <StyledSVG viewBox="0 0 286.3 56.78" className={className}>
+export const Horizontal2 = ({ className, height }) => (
+  <StyledSVG viewBox="0 0 286.3 56.78" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -256,8 +264,34 @@ export const Horizontal2 = ({ className }) => (
   </StyledSVG>
 );
 
-export const Vertical = ({ className }) => (
-  <StyledSVG viewBox="0 0 201.26 156.54" className={className}>
+export const EMenu = ({ className, height }) => (
+  <StyledSVG viewBox="0 0 31.18 43.8" className={className} style={{ height }}>
+    <g>
+      <path
+        class="st0"
+        d="M28.28,1.99H2.97c-0.82,0-1.48,0.66-1.48,1.48v3.42c0,0.82,0.66,1.48,1.48,1.48h25.31
+		c0.82,0,1.48-0.66,1.48-1.48V3.47C29.76,2.65,29.1,1.99,28.28,1.99z"
+      />
+      <path
+        class="st0"
+        d="M28.28,18.71H2.97c-0.82,0-1.48,0.66-1.48,1.48v3.42c0,0.82,0.66,1.48,1.48,1.48h25.31
+		c0.82,0,1.48-0.66,1.48-1.48v-3.42C29.76,19.38,29.1,18.71,28.28,18.71z"
+      />
+      <path
+        class="st0"
+        d="M28.36,35.43H2.75c-0.73,0-1.33,0.59-1.33,1.33v3.72c0,0.73,0.6,1.33,1.33,1.33h25.62
+		c0.73,0,1.33-0.59,1.33-1.33v-3.72C29.69,36.03,29.1,35.43,28.36,35.43z"
+      />
+    </g>
+  </StyledSVG>
+);
+
+export const Vertical = ({ className, height }) => (
+  <StyledSVG
+    viewBox="0 0 201.26 156.54"
+    className={className}
+    style={{ height }}
+  >
     <g>
       <path
         className="st0"
@@ -358,8 +392,12 @@ export const Vertical = ({ className }) => (
   </StyledSVG>
 );
 
-export const Vertical2 = ({ className }) => (
-  <StyledSVG viewBox="0 0 257.95 87.32" className={className}>
+export const Vertical2 = ({ className, height }) => (
+  <StyledSVG
+    viewBox="0 0 257.95 87.32"
+    className={className}
+    style={{ height }}
+  >
     <g>
       <path
         className="st0"
@@ -460,8 +498,8 @@ export const Vertical2 = ({ className }) => (
   </StyledSVG>
 );
 
-export const HorizontalShort = ({ className }) => (
-  <StyledSVG viewBox="0 0 229.61 56.3" className={className}>
+export const HorizontalShort = ({ className, height }) => (
+  <StyledSVG viewBox="0 0 229.61 56.3" className={className} style={{ height }}>
     <g>
       <g>
         <path
@@ -551,8 +589,12 @@ export const HorizontalShort = ({ className }) => (
   </StyledSVG>
 );
 
-export const VerticalShort = ({ className }) => (
-  <StyledSVG viewBox="0 0 87.87 129.81" className={className}>
+export const VerticalShort = ({ className, height }) => (
+  <StyledSVG
+    viewBox="0 0 87.87 129.81"
+    className={className}
+    style={{ height }}
+  >
     <g>
       <path
         className="st0"
