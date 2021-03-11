@@ -1,7 +1,13 @@
+import Meta from "../components/common/Meta";
 import Post from "../components/blog/Post";
 import { getPostBySlug, getAllPosts } from "../utils/blogUtils";
 
-const PostPage = ({ post, locale }) => <Post post={post} locale={locale} />;
+const PostPage = ({ post, locale }) => (
+  <>
+    <Meta title={`${post.title} | MPGCode`} description={post.excerpt} />
+    <Post post={post} locale={locale} />
+  </>
+);
 
 export default PostPage;
 
