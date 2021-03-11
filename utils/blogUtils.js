@@ -45,6 +45,7 @@ export const getPostBySlug = ({ slug, locale, fields = [] }) => {
 
     const items = {};
     fields.forEach((field) => {
+      items["locale"] = locale;
       if (field === "slug") items[field] = slug;
       if (field === "content") items[field] = content;
       if (data[field]) items[field] = data[field];

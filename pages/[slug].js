@@ -13,13 +13,15 @@ export default PostPage;
  */
 export const getStaticPaths = async ({ locales }) => {
   const posts = getAllPosts({ locales, fields: ["slug"] });
+  const paths = posts.map((post) => {
+    return {
+      params: { slug: post.slug },
+      locale: post.locale,
+    };
+  });
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: { ...post },
-      };
-    }),
+    paths,
     fallback: false,
   };
 };
