@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "posts_files_to_public": "rsync -av --exclude=*.mdx ./posts/ public/posts",
+    "posts_files_to_public": "node scripts/copy-posts-files.js",
     "local": "npm run posts_files_to_public && next dev -p 1994",
     "build": "npm run posts_files_to_public && next build",
     "start": "next start"
@@ -35,6 +35,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
+    "rsyncwrapper": "^3.0.1",
     "sass": "^1.32.8",
     "styled-components": "^5.2.1"
   }

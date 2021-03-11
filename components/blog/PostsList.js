@@ -7,7 +7,7 @@ const PostsList = ({ posts, locale }) => (
         {Object.keys(posts).map((id, index) => (
           <div
             key={id ?? index}
-            className="py-2 column is-one-third-desktop is-half-tablet is-full-mobile"
+            className="py-2 column is-full-desktop is-full-tablet is-full-mobile"
           >
             <PostCard post={posts[id]} locale={locale} />
           </div>

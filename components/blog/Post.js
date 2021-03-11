@@ -5,10 +5,7 @@ import PostImage from "./PostImage";
 import { isLiveEnv } from "../../utils/helpers";
 import { isFuture } from "../../utils/dateUtils";
 
-const Post = ({
-  post: { title, slug, content, isDraft, date },
-  locale,
-}) => {
+const Post = ({ post: { title, slug, content, isDraft, date }, locale }) => {
   const visibleFrom = new Date(date);
 
   // Post remains unpublished when is draft or when date is in the future
@@ -26,7 +23,9 @@ const Post = ({
       {isUnpublished ? (
         <p>This post has not yet been published. Please try again later.</p>
       ) : (
-        <MDX components={components}>{content}</MDX>
+        <div className="p-5">
+          <MDX components={components}>{content}</MDX>
+        </div>
       )}
     </>
   );

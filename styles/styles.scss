@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://use.fontawesome.com/releases/v5.15.2/css/all.css');
+@import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
 
 @mixin font($font-family, $font-weight, $font-style, $font-file) {
   @font-face {
@@ -23,11 +23,23 @@
 @include font(FiraSans, 700, italic, "/fonts/Fira/FiraSans-BoldItalic");
 @include font(Montserrat, 600, normal, "/fonts/Montserrat/Montserrat-SemiBold");
 @include font(Montserrat, 700, normal, "/fonts/Montserrat/Montserrat-Bold");
-@include font(Montserrat, 800, normal, "/fonts/Montserrat/Montserrat-ExtraBold");
+@include font(
+  Montserrat,
+  800,
+  normal,
+  "/fonts/Montserrat/Montserrat-ExtraBold"
+);
 
-$family-primary: FiraSans, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-h1, h2, h3, h4, h5, h6 {
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+$family-primary: FiraSans, -apple-system, BlinkMacSystemFont, Roboto,
+  Helvetica Neue, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
   font-weight: 700;
 }
 
@@ -58,5 +70,6 @@ select:focus {
 @import "../node_modules/bulma/sass/grid/columns.sass";
 @import "../node_modules/bulma/sass/helpers/flexbox.sass";
 @import "../node_modules/bulma/sass/helpers/typography.sass";
+@import "../node_modules/bulma/sass/helpers/spacing.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";

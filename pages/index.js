@@ -13,7 +13,7 @@ const Home = ({ locale, posts }) => {
   return (
     <div>
       <Meta />
-      <Caption text={t("home_caption")} />
+      {/* <Caption text={t("home_caption")} /> */}
       <PostsList posts={posts} locale={locale} />
       <LanguageSwitcher locale={locale} />
     </div>
