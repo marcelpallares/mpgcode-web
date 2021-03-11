@@ -27,34 +27,36 @@ const PostCard = ({
       <Link href={`/${slug}`}>
         <a className="article-link" aria-label={title} />
       </Link>
-      {imageUrl && (
-        <ImageContainer>
-          <PostImage src={coverImage} slug={slug} locale={locale} />
-        </ImageContainer>
-      )}
-
-      <div className="px-5 py-5">
-        {compact ? (
-          <PostTitleCompact className="is-heavy">
-            <Link href={`/${slug}`}>
-              <a>{title}</a>
-            </Link>
-          </PostTitleCompact>
-        ) : (
-          <PostTitle className="is-heavy">
-            <Link href={`/${slug}`}>
-              <a>{title}</a>
-            </Link>
-          </PostTitle>
+      <div className="columns is-gapless">
+        {imageUrl && (
+          <ImageContainer className="column">
+            <PostImage src={coverImage} slug={slug} locale={locale} />
+          </ImageContainer>
         )}
 
-        <PostSubtitle className={`mt-3 ${compact ? "mb-3" : "mb-5"}`}>
-          {subtitle}
-        </PostSubtitle>
+        <div className="mx-3 my-3 column">
+          {compact ? (
+            <PostTitleCompact className="is-heavy">
+              <Link href={`/${slug}`}>
+                <a>{title}</a>
+              </Link>
+            </PostTitleCompact>
+          ) : (
+            <PostTitle className="is-heavy">
+              <Link href={`/${slug}`}>
+                <a>{title}</a>
+              </Link>
+            </PostTitle>
+          )}
 
-        {!compact && excerpt && (
-          <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-        )}
+          <PostSubtitle className={`mt-3 ${compact ? "mb-3" : "mb-5"}`}>
+            {subtitle}
+          </PostSubtitle>
+
+          {!compact && excerpt && (
+            <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+          )}
+        </div>
       </div>
     </PostContainer>
   );

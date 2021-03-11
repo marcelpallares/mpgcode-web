@@ -16,6 +16,7 @@ const Post = ({ post: { title, slug, content, isDraft, date }, locale }) => {
     img: (props) => <PostImage slug={slug} locale={locale} {...props} />,
     em: (props) => <PostEmphasis {...props} />,
     a: (props) => <PostLink {...props} />,
+    p: (props) => <p className="mb-4" {...props} />,
   };
 
   return (

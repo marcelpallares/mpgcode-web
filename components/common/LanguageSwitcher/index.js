@@ -10,7 +10,7 @@ const LanguageSwitcher = ({ locale }) => {
 
   return (
     <Link href="/" locale={getLanguageDest({ locale })}>
-      <a>{t("lang_switch")}</a>
+      <a className="px-3 py-3">{t("lang_switch")}</a>
     </Link>
   );
 };

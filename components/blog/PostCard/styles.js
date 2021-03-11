@@ -42,10 +42,15 @@ const PostContainer = styled.article`
 
 const ImageContainer = styled.div`
   max-width: 150px;
-  margin-right: 1rem;
+  margin-right: 0.75rem !important;
 
   img {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 0 !important;
   }
 `;
 
