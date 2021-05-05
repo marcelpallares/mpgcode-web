@@ -6,7 +6,7 @@ const Page = ({ children }) => {
   return (
     <ThemeProvider theme={MainTheme}>
       <Navbar />
-      <div>{children}</div>
+      {children}
     </ThemeProvider>
   );
 };

@@ -12,6 +12,7 @@ const PostContainer = styled.article`
   transition: background-color 300ms linear;
   width: 100%;
   display: inline-flex;
+  box-shadow: 0 0 0 1px #08090a1a;
 
   .article-link {
     position: absolute;
@@ -57,7 +58,7 @@ const ImageContainer = styled.div`
 const PostTitle = styled.h2`
   overflow: hidden;
   position: relative;
-
+  margin-top: 0;
   &.loading {
     background-color: ${(props) => props.theme.placeholderGray};
     border-radius: ${(props) => props.theme.borderRadius};
@@ -68,6 +69,7 @@ const PostTitle = styled.h2`
   }
 
   a {
+    color: ${(props) => props.theme.black};
     font-size: 24px;
     line-height: 1.5;
   }

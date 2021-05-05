@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Logo, { LogoStyles } from "../Logo";
-import { Burger } from "./styles";
+import { Nav, Burger } from "./styles";
 
 const Navbar = () => {
   const toggleNavMenu = () => {};
   const closeNavMenu = () => {};
 
   return (
-    <nav className="navbar is-primary">
+    <Nav className="navbar is-primary">
       <div className="navbar-brand">
         <Link href="/">
           <a className="logo navbar-item" onClick={closeNavMenu}>
@@ -22,7 +22,7 @@ const Navbar = () => {
           <Logo accent logoStyle={LogoStyles.eMenu} height="25px" />
         </Burger>
       </div>
-    </nav>
+    </Nav>
   );
 };
 

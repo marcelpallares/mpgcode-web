@@ -28,12 +28,6 @@ const PostCard = ({
         <a className="article-link" aria-label={title} />
       </Link>
       <div className="columns is-gapless">
-        {imageUrl && (
-          <ImageContainer className="column">
-            <PostImage src={coverImage} slug={slug} locale={locale} />
-          </ImageContainer>
-        )}
-
         <div className="mx-3 my-3 column">
           {compact ? (
             <PostTitleCompact className="is-heavy">
@@ -57,6 +51,12 @@ const PostCard = ({
             <div dangerouslySetInnerHTML={{ __html: excerpt }} />
           )}
         </div>
+
+        {imageUrl && (
+          <ImageContainer className="column">
+            <PostImage src={coverImage} slug={slug} locale={locale} />
+          </ImageContainer>
+        )}
       </div>
     </PostContainer>
   );

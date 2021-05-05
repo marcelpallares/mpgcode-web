@@ -16,6 +16,7 @@ const MainTheme = {
   iconColor: "#9f9f9f",
   overlay: "rgba(10, 10, 10, 0.86)",
   error: "#f14668",
+  borderRadius: "4px",
 };
 
 export { MainTheme };
