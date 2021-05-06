@@ -1,4 +1,4 @@
-import fs from "fs";
+import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
@@ -10,7 +10,7 @@ export const getPostSlugs = ({ locales = [], locale }) => {
   if (locales.length > 0) {
     locales.forEach((locale) => {
       const localizedDirectory = join(postsDirectory, locale);
-      const localizedPosts = fs.readdirSync(localizedDirectory).map((slug) => {
+      const localizedPosts = readdirSync(localizedDirectory).map((slug) => {
         return { slug, locale };
       });
 
@@ -18,7 +18,7 @@ export const getPostSlugs = ({ locales = [], locale }) => {
     });
   } else {
     const localizedDirectory = join(postsDirectory, locale);
-    const localizedPosts = fs.readdirSync(localizedDirectory).map((slug) => {
+    const localizedPosts = readdirSync(localizedDirectory).map((slug) => {
       return { slug, locale };
     });
 
@@ -39,7 +39,7 @@ export const getPostBySlug = ({ slug, locale, fields = [] }) => {
   let fileContents;
 
   try {
-    fileContents = fs.readFileSync(fullPath, "utf8");
+    fileContents = readFileSync(fullPath, "utf8");
 
     const { data, content } = matter(fileContents);
 
