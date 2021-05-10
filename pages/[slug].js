@@ -1,3 +1,4 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Meta from "../components/common/Meta";
 import Post from "../components/blog/Post";
 import { getPostBySlug, getAllPosts } from "../utils/blogUtils";
@@ -58,7 +59,11 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
   }
 
   return {
-    props: { post, locale },
-    revalidate: 1, // In seconds
+    props: {
+      post,
+      locale,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    // revalidate: 1, // In seconds
   };
 };
