@@ -9,7 +9,7 @@ const PostBody = styled.div`
   max-width: 680px;
   margin: 0 24px;
 
-  .img + p {
+  .image-container + p {
     font-size: 16px;
     margin: 0.5em;
     text-align: center;

@@ -7,7 +7,7 @@ const ImageContainer = styled.div`
 
 const PostImage = ({ slug, src, locale, ...otherProps }) => {
   return (
-    <ImageContainer className="img">
+    <ImageContainer className="image-container">
       <img src={`posts/${locale}/${slug}/${src}`} {...otherProps} />
     </ImageContainer>
   );
