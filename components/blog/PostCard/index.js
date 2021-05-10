@@ -1,8 +1,8 @@
 import Link from "next/link";
 import {
   PostContainer,
+  MainColumn,
   PostTitle,
-  PostTitleCompact,
   PostSubtitle,
   ImageContainer,
 } from "./styles";
@@ -11,7 +11,6 @@ import { getRelativeDate } from "../../../utils/dateUtils";
 
 const PostCard = ({
   locale,
-  compact,
   post: { title, slug, date, excerpt = null, coverImage = null } = {},
 }) => {
   const imageUrl = coverImage ? `url("${coverImage}")` : "";
@@ -28,29 +27,15 @@ const PostCard = ({
         <a className="article-link" aria-label={title} />
       </Link>
       <div className="columns is-gapless">
-        <div className="mx-3 my-3 column">
-          {compact ? (
-            <PostTitleCompact className="is-heavy">
-              <Link href={`/${slug}`}>
-                <a>{title}</a>
-              </Link>
-            </PostTitleCompact>
-          ) : (
-            <PostTitle className="is-heavy">
-              <Link href={`/${slug}`}>
-                <a>{title}</a>
-              </Link>
-            </PostTitle>
-          )}
-
-          <PostSubtitle className={`mt-3 ${compact ? "mb-3" : "mb-5"}`}>
-            {subtitle}
-          </PostSubtitle>
-
-          {!compact && excerpt && (
-            <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-          )}
-        </div>
+        <MainColumn className="column is-four-fifths m-3">
+          <PostTitle className="is-heavy">
+            <Link href={`/${slug}`}>
+              <a>{title}</a>
+            </Link>
+          </PostTitle>
+          <PostSubtitle className="mb-5">{subtitle}</PostSubtitle>
+          {excerpt && <div dangerouslySetInnerHTML={{ __html: excerpt }} />}
+        </MainColumn>
 
         {imageUrl && (
           <ImageContainer className="column">

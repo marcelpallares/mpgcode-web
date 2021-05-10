@@ -16,7 +16,6 @@ export default PostPage;
  * all the individual blog posts pages at build time.
  * 1 - getStaticPaths -> recovers all slugs
  * 2 - getStaticProps -> for each of the recovered slugs
- * It gets rebuilt after 1 second each time someone visits a blog post.
  */
 export const getStaticPaths = async ({ locales }) => {
   const posts = getAllPosts({ locales, fields: ["slug"] });
@@ -64,6 +63,5 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
       locale,
       ...(await serverSideTranslations(locale, ["common"])),
     },
-    // revalidate: 1, // In seconds
   };
 };
