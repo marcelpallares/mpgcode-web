@@ -1,5 +1,5 @@
 const MainTheme = {
-  primary: "#2c2c2c",
+  primary: "#0000ff",
   accent: "#ff0050",
   body: "#4a4a4a",
   grayBg: "#f8f7f7",

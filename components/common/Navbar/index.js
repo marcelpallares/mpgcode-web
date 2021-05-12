@@ -15,10 +15,7 @@ const Navbar = () => {
           </a>
         </Link>
 
-        <Burger
-          className="navbar-item navbar-burger is-justify-content-center"
-          onClick={toggleNavMenu}
-        >
+        <Burger className="navbar-burger" onClick={toggleNavMenu}>
           <Logo accent logoStyle={LogoStyles.eMenu} height="25px" />
         </Burger>
       </div>

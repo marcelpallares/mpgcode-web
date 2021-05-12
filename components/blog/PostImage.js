@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
+  text-align: center;
 `;
 
 const PostImage = ({ slug, src, locale, ...otherProps }) => {

@@ -1,11 +1,5 @@
-import { StyledSVG } from "./styles";
-
 export const Infotipo = ({ className, height }) => (
-  <StyledSVG
-    viewBox="0 0 172.91 174.96"
-    className={className}
-    style={{ height }}
-  >
+  <svg viewBox="0 0 172.91 174.96" className={className} style={{ height }}>
     <path
       className="st0"
       d="M171.45,54.55c-0.39-14.7-6.5-28.3-17.28-38.38C143.14,5.84,128.71,0.63,113.58,1.54
@@ -38,15 +32,11 @@ export const Infotipo = ({ className, height }) => (
 	c7.34-4.72,15.71-7.46,24.35-7.97c14.2-0.84,27.7,4.03,38.04,13.71c10.35,9.69,16.11,22.83,16.21,37l0.03,0.86L168.05,118.98z"
     />
     ;
-  </StyledSVG>
+  </svg>
 );
 
 export const Horizontal = ({ className, height }) => (
-  <StyledSVG
-    viewBox="0 0 314.65 79.35"
-    className={className}
-    style={{ height }}
-  >
+  <svg viewBox="0 0 314.65 79.35" className={className} style={{ height }}>
     <g>
       <g>
         <path
@@ -158,11 +148,11 @@ export const Horizontal = ({ className, height }) => (
       </g>
     </g>
     ;
-  </StyledSVG>
+  </svg>
 );
 
 export const Horizontal2 = ({ className, height }) => (
-  <StyledSVG viewBox="0 0 286.3 56.78" className={className} style={{ height }}>
+  <svg viewBox="0 0 286.3 56.78" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -261,11 +251,11 @@ export const Horizontal2 = ({ className, height }) => (
 		c3.38,3.17,5.26,7.46,5.3,12.09l0.01,0.28L55.85,38.68z"
       />
     </g>
-  </StyledSVG>
+  </svg>
 );
 
 export const EMenu = ({ className, height }) => (
-  <StyledSVG viewBox="0 0 31.18 43.8" className={className} style={{ height }}>
+  <svg viewBox="0 0 31.18 43.8" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -283,15 +273,11 @@ export const EMenu = ({ className, height }) => (
 		c0.73,0,1.33-0.59,1.33-1.33v-3.72C29.69,36.03,29.1,35.43,28.36,35.43z"
       />
     </g>
-  </StyledSVG>
+  </svg>
 );
 
 export const Vertical = ({ className, height }) => (
-  <StyledSVG
-    viewBox="0 0 201.26 156.54"
-    className={className}
-    style={{ height }}
-  >
+  <svg viewBox="0 0 201.26 156.54" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -389,15 +375,11 @@ export const Vertical = ({ className, height }) => (
 		L120.62,97.34z"
       />
     </g>
-  </StyledSVG>
+  </svg>
 );
 
 export const Vertical2 = ({ className, height }) => (
-  <StyledSVG
-    viewBox="0 0 257.95 87.32"
-    className={className}
-    style={{ height }}
-  >
+  <svg viewBox="0 0 257.95 87.32" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -495,11 +477,11 @@ export const Vertical2 = ({ className, height }) => (
       />
     </g>
     ;
-  </StyledSVG>
+  </svg>
 );
 
 export const HorizontalShort = ({ className, height }) => (
-  <StyledSVG viewBox="0 0 229.61 56.3" className={className} style={{ height }}>
+  <svg viewBox="0 0 229.61 56.3" className={className} style={{ height }}>
     <g>
       <g>
         <path
@@ -586,15 +568,11 @@ export const HorizontalShort = ({ className, height }) => (
       </g>
     </g>
     ;
-  </StyledSVG>
+  </svg>
 );
 
 export const VerticalShort = ({ className, height }) => (
-  <StyledSVG
-    viewBox="0 0 87.87 129.81"
-    className={className}
-    style={{ height }}
-  >
+  <svg viewBox="0 0 87.87 129.81" className={className} style={{ height }}>
     <g>
       <path
         className="st0"
@@ -665,5 +643,5 @@ export const VerticalShort = ({ className, height }) => (
 		l0.01,0.43L84.73,60.87z"
       />
     </g>
-  </StyledSVG>
+  </svg>
 );

@@ -15,7 +15,7 @@ const Logo = ({
   logoStyle = LogoStyles.horizontal,
   height = 50,
 }) => {
-  let className = "";
+  let className = "mpg-logo";
   if (white) className += " white";
   else if (accent) className += " accent";
 
