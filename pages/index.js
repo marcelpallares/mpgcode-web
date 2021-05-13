@@ -11,12 +11,13 @@ const Home = ({ locale, posts }) => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <>
       <Meta />
-      {/* <Caption text={t("home_caption")} /> */}
       <PostsList posts={posts} locale={locale} />
-      <LanguageSwitcher locale={locale} />
-    </div>
+      <div className="p-3">
+        <LanguageSwitcher locale={locale} />
+      </div>
+    </>
   );
 };
 

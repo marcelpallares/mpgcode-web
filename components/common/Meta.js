@@ -7,6 +7,7 @@ const Meta = ({
   robots,
   opengraphImage,
   opengraphType,
+  author,
 }) => {
   const { t } = useTranslation();
   return (
@@ -17,6 +18,7 @@ const Meta = ({
       <link rel="apple-touch-icon" href="app-icon.png" />
       <meta property="application-name" content="MPGCode" />
       <meta property="og:site_name" content="MPGCode" />
+      <meta name="author" content={"Marcel Pallarés"} />
       {title ? (
         <>
           <title>{title}</title>

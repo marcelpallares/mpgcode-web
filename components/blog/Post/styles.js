@@ -5,7 +5,7 @@ const PostContainer = styled.div`
   justify-content: center;
 `;
 
-const PostBody = styled.div`
+const PostBody = styled.article`
   max-width: 680px;
   margin: 0 24px;
 

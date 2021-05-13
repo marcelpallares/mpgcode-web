@@ -1,14 +1,15 @@
-import TimeAgo from "javascript-time-ago";
-import es from "javascript-time-ago/locale/es";
-import en from "javascript-time-ago/locale/en";
+import dateFormatter from "date-and-time";
+import es from "date-and-time/locale/es";
+import en from "date-and-time/locale/en";
 
-TimeAgo.addLocale(en);
-TimeAgo.addLocale(es);
-TimeAgo.setDefaultLocale("en");
+export const getFormattedDate = ({ locale, date }) => {
+  if (locale === "es") {
+    dateFormatter.locale(es);
+    return dateFormatter.format(date, "DD MMM YYYY");
+  }
 
-export const getRelativeDate = ({ locale, date }) => {
-  const timeAgo = new TimeAgo(locale);
-  return timeAgo.format(date);
+  dateFormatter.locale(en);
+  return dateFormatter.format(date, "MMM DD, YYYY");
 };
 
 export const isFuture = (date) => {

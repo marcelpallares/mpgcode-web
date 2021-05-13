@@ -40,8 +40,8 @@ const Post = ({
         <p>This post has not yet been published. Please try again later.</p>
       ) : (
         <PostContainer>
-          {/* <PostHeader post={post} /> */}
           <PostBody>
+            <PostHeader post={post} locale={locale} />
             <MDX components={components}>{content}</MDX>
           </PostBody>
         </PostContainer>

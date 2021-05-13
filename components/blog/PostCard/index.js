@@ -7,7 +7,7 @@ import {
   ImageContainer,
 } from "./styles";
 import PostImage from "../PostImage";
-import { getRelativeDate } from "../../../utils/dateUtils";
+import { getFormattedDate } from "../../../utils/dateUtils";
 
 const PostCard = ({
   locale,
@@ -15,11 +15,7 @@ const PostCard = ({
 }) => {
   const imageUrl = coverImage ? `url("${coverImage}")` : "";
 
-  let subtitle = "";
-  if (date) {
-    if (subtitle) subtitle += " | ";
-    subtitle += getRelativeDate({ locale, date: new Date(date) });
-  }
+  let formattedDate = getFormattedDate({ locale, date: new Date(date) });
 
   return (
     <PostContainer>
@@ -33,7 +29,11 @@ const PostCard = ({
               <a>{title}</a>
             </Link>
           </PostTitle>
-          <PostSubtitle className="mb-5">{subtitle}</PostSubtitle>
+          <PostSubtitle className="py-2 mb-4">
+            <time pubdate datetime={date}>
+              {formattedDate}
+            </time>
+          </PostSubtitle>
           {excerpt && <div dangerouslySetInnerHTML={{ __html: excerpt }} />}
         </MainColumn>
 

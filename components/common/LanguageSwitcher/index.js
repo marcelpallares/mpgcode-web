@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
-const LanguageSwitcher = ({ locale }) => {
+const LanguageSwitcher = ({
+  locale = "en",
+  destination = "",
+  isPost = false,
+}) => {
   const { t } = useTranslation();
 
   const getLanguageDest = () => {
@@ -9,8 +13,8 @@ const LanguageSwitcher = ({ locale }) => {
   };
 
   return (
-    <Link href="/" locale={getLanguageDest({ locale })}>
-      <a className="px-3 py-3">{t("lang_switch")}</a>
+    <Link href={`/${destination}`} locale={getLanguageDest({ locale })}>
+      <a>{t(isPost ? "post_switch" : "lang_switch")}</a>
     </Link>
   );
 };
