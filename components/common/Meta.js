@@ -5,11 +5,15 @@ const Meta = ({
   title,
   description,
   robots,
-  opengraphImage,
-  opengraphType,
-  author,
+  ogImage,
+  isPost = false,
+  publishedDate,
 }) => {
   const { t } = useTranslation();
+
+  //TODO: Change for real URL once published !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const BASE_URL = "https://mpgcode-web.vercel.app";
+
   return (
     <Head>
       <meta charSet="utf-8" />
@@ -41,31 +45,36 @@ const Meta = ({
           <meta property="og:description" content={t("meta_description")} />
         </>
       )}
+      {isPost ? (
+        <>
+          <meta property="og:type" content="article" />
+          <meta property="article:author" content="Marcel Pallarés" />
+        </>
+      ) : (
+        <meta property="og:type" content="website" />
+      )}
+      {isPost && publishedDate && (
+        <meta property="article:published_time" content={publishedDate} />
+      )}
       {/* TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
       {robots ? (
         <meta name="robots" content={robots} />
       ) : (
         <meta name="robots" content="noindex, nofollow" />
       )}
-      {opengraphType ? (
-        <meta property="og:type" content={opengraphType} />
-      ) : (
-        <meta property="og:type" content="website" />
-      )}
 
-      {/* TODO IMAGE URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-      {opengraphImage?.sourceUrl ? (
-        <meta property="og:image" content={opengraphImage.sourceUrl} />
+      {ogImage ? (
+        <meta property="og:image" content={`${BASE_URL}/${ogImage}`} />
       ) : (
         <>
           <meta
             property="og:image"
-            content="https://mpgcode-web.vercel.app/images/ogimage.png"
+            content={`${BASE_URL}/images/ogimage.png`}
           />
-          <meta property="og:image:width" content="300" />
-          <meta property="og:image:height" content="300" />
         </>
       )}
+      <meta property="og:image:width" content="300" />
+      <meta property="og:image:height" content="300" />
     </Head>
   );
 };

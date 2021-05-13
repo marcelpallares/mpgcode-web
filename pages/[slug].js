@@ -5,7 +5,13 @@ import { getPostBySlug, getAllPosts } from "../utils/blogUtils";
 
 const PostPage = ({ post, locale }) => (
   <>
-    <Meta title={`${post.seoTitle} | MPGCode`} description={post.excerpt} />
+    <Meta
+      isPost
+      title={`${post.seoTitle} | MPGCode`}
+      description={post.excerpt}
+      publishedDate={post.date}
+      ogImage={`posts/${locale}/${post.slug}/${post.coverImage}`}
+    />
     <Post post={post} locale={locale} />
   </>
 );
@@ -44,9 +50,6 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
       "excerpt",
       "date",
       "coverImage",
-      "coverImageAlt",
-      "coverImageHeight",
-      "coverImageWidth",
       "localizedSlug",
       "isDraft",
     ],
