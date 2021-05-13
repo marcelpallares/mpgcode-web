@@ -143,3 +143,11 @@ h6 {
     fill: $accent;
   }
 }
+
+#nprogress .spinner {
+  display: none !important;
+}
+
+#nprogress .bar {
+  background: $accent !important;
+}
