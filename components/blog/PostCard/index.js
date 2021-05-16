@@ -30,7 +30,7 @@ const PostCard = ({
             </Link>
           </PostTitle>
           <PostSubtitle className="py-2 mb-4">
-            <time pubdate datetime={date}>
+            <time pubdate="true" dateTime={date}>
               {formattedDate}
             </time>
           </PostSubtitle>

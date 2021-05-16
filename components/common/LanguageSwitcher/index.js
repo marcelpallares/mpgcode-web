@@ -1,11 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
-const LanguageSwitcher = ({
-  locale = "en",
-  destination = "",
-  isPost = false,
-}) => {
+const LanguageSwitcher = ({ destination = "", isPost = false }) => {
+  const { locale = "en" } = useRouter();
   const { t } = useTranslation();
 
   const getLanguageDest = () => {

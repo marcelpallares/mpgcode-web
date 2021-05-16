@@ -13,7 +13,7 @@ const PostHeader = ({ locale, post: { title, localizedSlug, date } = {} }) => {
             src="/images/marcel/marcel-32.png"
             alt="Author picture"
             width="32"
-            srcset="
+            srcSet="
               /images/marcel/marcel-32@3x.png 3x,
               /images/marcel/marcel-32@2x.png 2x,
               /images/marcel/marcel-32.png 1x
@@ -24,7 +24,7 @@ const PostHeader = ({ locale, post: { title, localizedSlug, date } = {} }) => {
       </div>
       <div className="columns is-gapless is-mobile is-vcentered">
         <div className="column">
-          <time pubdate datetime={date}>
+          <time pubdate="true" dateTime={date}>
             {formattedDate}
           </time>
         </div>

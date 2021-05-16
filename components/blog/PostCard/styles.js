@@ -54,7 +54,7 @@ const PostTitle = styled.h2`
 `;
 
 const PostSubtitle = styled.p`
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export { PostContainer, MainColumn, PostTitle, PostSubtitle, ImageContainer };
