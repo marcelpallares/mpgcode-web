@@ -1,6 +1,9 @@
 import Router from "next/router";
 import NProgress from "nprogress";
 import { appWithTranslation } from "next-i18next";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "../styles/global-styles";
+import { MainTheme } from "../styles/theme";
 import Page from "../components/common/Page";
 import "../styles/styles.scss";
 import "../node_modules/nprogress/nprogress.css";
@@ -17,9 +20,12 @@ Router.onRouteChangeError = () => {
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <ThemeProvider theme={MainTheme}>
+      <GlobalStyle />
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </ThemeProvider>
   );
 };
 
