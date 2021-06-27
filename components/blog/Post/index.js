@@ -8,6 +8,7 @@ import PostList from "../PostList";
 import PostHeader from "../PostHeader";
 import PostListOrdered from "../PostListOrdered";
 import PostListItem from "../PostListItem";
+import PostEmoji from "../PostEmoji";
 import { isLiveEnv } from "../../../utils/helpers";
 import { isFuture } from "../../../utils/dateUtils";
 import { PostContainer, PostBody } from "./styles";
@@ -32,6 +33,7 @@ const Post = ({
     ul: (props) => <PostList {...props} />,
     ol: (props) => <PostListOrdered {...props} />,
     li: (props) => <PostListItem {...props} />,
+    emoji: (props) => <PostEmoji {...props} />,
   };
 
   return (
