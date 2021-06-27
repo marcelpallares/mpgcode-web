@@ -11,9 +11,7 @@ module.exports = withMDX({
   pageExtensions: ["js", "jsx", "md", "mdx"],
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
+      config.resolve.fallback.fs = false;
     }
 
     //Copy files from posts and move them to the public folder
