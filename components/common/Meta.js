@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
+import { isLiveEnv } from "../../utils/helpers";
 
 const Meta = ({
   title,
@@ -10,9 +11,7 @@ const Meta = ({
   publishedDate,
 }) => {
   const { t } = useTranslation();
-
-  //TODO: Change for real URL once published !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  const BASE_URL = "https://mpgcode-web.vercel.app";
+  const BASE_URL = process.env.NEXT_PUBLIC_ROOT_URL;
 
   return (
     <Head>
@@ -56,12 +55,10 @@ const Meta = ({
       {isPost && publishedDate && (
         <meta property="article:published_time" content={publishedDate} />
       )}
-      {/* TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-      {robots ? (
-        <meta name="robots" content={robots} />
-      ) : (
-        <meta name="robots" content="noindex, nofollow" />
-      )}
+
+      {isLiveEnv && robots && <meta name="robots" content={robots} />}
+      {isLiveEnv && !robots && <meta name="robots" content="index, follow" />}
+      {!isLiveEnv && <meta name="robots" content="noindex, nofollow" />}
 
       {ogImage ? (
         <meta property="og:image" content={`${BASE_URL}/${ogImage}`} />
