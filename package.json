@@ -5,9 +5,13 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "local": "next dev -p 1994",
-    "build": "next build",
-    "start": "next start"
+    "local": "BUILD_ENV=local next dev -p 1994",
+    "test": "BUILD_ENV=test next dev -p 1994",
+    "live": "BUILD_ENV=live next dev -p 1994",
+    "build-test": "BUILD_ENV=test next build",
+    "build-live": "BUILD_ENV=live next build",
+    "start-test": "BUILD_ENV=test next start",
+    "start-live": "BUILD_ENV=live next start"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.12.0",

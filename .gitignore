@@ -38,4 +38,3 @@ packages/react-devtools-shell/dist
 
 *.output.css
 public/posts/
-env.*
