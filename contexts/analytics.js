@@ -6,7 +6,7 @@ const AnalyticsContext = React.createContext();
 const trackingId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 const options = { titleCase: false };
 
-function AnalyticsProvider(props) {
+const AnalyticsProvider = (props) => {
   const [isInitialized, setIsInitialized] = useState(false);
 
   const handleRouteChange = (url) => {
@@ -27,7 +27,7 @@ function AnalyticsProvider(props) {
   }, []);
 
   return <AnalyticsContext.Provider {...props} />;
-}
+};
 
 const useTracking = () => React.useContext(AnalyticsContext);
 
