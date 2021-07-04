@@ -1,9 +1,8 @@
 import Router from "next/router";
 import NProgress from "nprogress";
-import { useEffect } from "react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider } from "styled-components";
-import { initializeAnalytics } from "../utils/analytics";
+import { AnalyticsProvider } from "../contexts/analytics";
 import { GlobalStyle } from "../styles/global-styles";
 import { MainTheme } from "../styles/theme";
 import Page from "../components/common/Page";
@@ -21,17 +20,15 @@ Router.onRouteChangeError = () => {
 };
 
 const MyApp = ({ Component, pageProps }) => {
-  useEffect(() => {
-    initializeAnalytics();
-  }, []);
-
   return (
-    <ThemeProvider theme={MainTheme}>
-      <GlobalStyle />
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    </ThemeProvider>
+    <AnalyticsProvider>
+      <ThemeProvider theme={MainTheme}>
+        <GlobalStyle />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </ThemeProvider>
+    </AnalyticsProvider>
   );
 };
 
