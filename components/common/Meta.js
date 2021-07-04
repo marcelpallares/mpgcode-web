@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { isLiveEnv } from "../../utils/helpers";
 
@@ -9,9 +10,18 @@ const Meta = ({
   ogImage,
   isPost = false,
   publishedDate,
+  langAlternate,
 }) => {
+  const { locale = "en", asPath = "/" } = useRouter();
   const { t } = useTranslation();
   const BASE_URL = process.env.NEXT_PUBLIC_ROOT_URL;
+
+  const alternateLang =
+    locale === "es"
+      ? { locale: "en", path: "" }
+      : { locale: "es", path: "/es" };
+
+  const isDefaultLang = locale === "en";
 
   return (
     <Head>
@@ -72,6 +82,38 @@ const Meta = ({
       )}
       <meta property="og:image:width" content="300" />
       <meta property="og:image:height" content="300" />
+
+      {langAlternate ? (
+        <>
+          <link
+            rel="alternate"
+            hrefLang={alternateLang.locale}
+            href={`${BASE_URL}${alternateLang.path}/${langAlternate}`}
+          />
+          {!isDefaultLang && (
+            <link
+              rel="alternate"
+              hrefLang="x-default"
+              href={`${BASE_URL}${alternateLang.path}/${langAlternate}`}
+            />
+          )}
+        </>
+      ) : (
+        <>
+          <link
+            rel="alternate"
+            hrefLang={alternateLang.locale}
+            href={`${BASE_URL}${alternateLang.path}${asPath}`}
+          />
+          {!isDefaultLang && (
+            <link
+              rel="alternate"
+              hrefLang="x-default"
+              href={`${BASE_URL}${asPath}`}
+            />
+          )}
+        </>
+      )}
     </Head>
   );
 };

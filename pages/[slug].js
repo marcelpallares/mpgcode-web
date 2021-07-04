@@ -11,6 +11,7 @@ const PostPage = ({ post, locale }) => (
       description={post.excerpt}
       publishedDate={post.date}
       ogImage={`posts/${locale}/${post.slug}/${post.coverImage}`}
+      langAlternate={post.localizedSlug}
     />
     <Post post={post} locale={locale} />
   </>
