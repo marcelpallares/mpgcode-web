@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Router from "next/router";
 import ReactGA from "react-ga";
+import { isLiveEnv } from "../utils/helpers";
 
 const AnalyticsContext = React.createContext();
 const trackingId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
-const options = { titleCase: false };
+const options = {
+  titleCase: false,
+  debug: !isLiveEnv,
+};
 
 const AnalyticsProvider = (props) => {
   const [isInitialized, setIsInitialized] = useState(false);
