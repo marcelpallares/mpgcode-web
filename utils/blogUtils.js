@@ -28,7 +28,11 @@ export const getPostSlugs = ({ locales = [], locale }) => {
   return slugs;
 };
 
-export const getAllPosts = ({ locales = [], fields = [], locale = "en" }) => {
+export const getAllPosts = ({
+  locales = [],
+  fields = ["slug", "localizedSlug"],
+  locale = "en",
+}) => {
   return getPostSlugs({ locales, locale })
     .map(({ slug, locale }) => getPostBySlug({ slug, locale, fields }))
     .sort((post1, post2) => (post1.date > post2.date ? "-1" : "1"));
