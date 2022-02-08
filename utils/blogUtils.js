@@ -1,8 +1,19 @@
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
+import { isLiveEnv } from "./helpers";
+import { isFuture } from "./dateUtils";
+const postsDirectory = join(process.cwd(), "posts");
 import matter from "gray-matter";
 
-const postsDirectory = join(process.cwd(), "posts");
+export const getAllPosts = ({
+  locales = [],
+  fields = ["slug", "localizedSlug"],
+  locale = "en",
+}) => {
+  return getPostSlugs({ locales, locale })
+    .map(({ slug, locale }) => getPostBySlug({ slug, locale, fields }))
+    .sort((post1, post2) => (post1?.date > post2?.date ? "-1" : "1"));
+};
 
 export const getPostSlugs = ({ locales = [], locale }) => {
   let slugs = [];
@@ -28,16 +39,6 @@ export const getPostSlugs = ({ locales = [], locale }) => {
   return slugs;
 };
 
-export const getAllPosts = ({
-  locales = [],
-  fields = ["slug", "localizedSlug"],
-  locale = "en",
-}) => {
-  return getPostSlugs({ locales, locale })
-    .map(({ slug, locale }) => getPostBySlug({ slug, locale, fields }))
-    .sort((post1, post2) => (post1.date > post2.date ? "-1" : "1"));
-};
-
 export const getPostBySlug = ({ slug, locale, fields = [] }) => {
   const fullPath = join(postsDirectory, locale, slug, `${slug}.mdx`);
   let fileContents;
@@ -54,6 +55,13 @@ export const getPostBySlug = ({ slug, locale, fields = [] }) => {
       if (field === "content") items[field] = content;
       if (data[field]) items[field] = data[field];
     });
+
+    const visibleFrom = new Date(items.date);
+    // Post remains unpublished when is draft or when date is in the future
+    const isUnpublished =
+      (isLiveEnv && items.isDraft) || (isLiveEnv && isFuture(visibleFrom));
+
+    if (isUnpublished) return null;
 
     return items;
   } catch (err) {

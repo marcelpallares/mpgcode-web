@@ -1,3 +1,4 @@
+import { serialize } from "next-mdx-remote/serialize";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Meta from "../components/common/Meta";
 import Post from "../components/blog/Post";
@@ -13,6 +14,7 @@ const PostPage = ({ post, locale }) => (
       ogImage={`posts/${locale}/${post.slug}/${post.coverImage}`}
       langAlternate={post.localizedSlug}
     />
+
     <Post post={post} locale={locale} />
   </>
 );
@@ -62,6 +64,8 @@ export const getStaticProps = async ({ locale, params: { slug } }) => {
       notFound: true,
     };
   }
+
+  post.content = await serialize(post.content);
 
   return {
     props: {

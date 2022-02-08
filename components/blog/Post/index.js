@@ -1,3 +1,4 @@
+import { MDXRemote } from "next-mdx-remote";
 import PostParagraph from "../PostParagraph";
 import PostLink from "../PostLink";
 import PostEmphasis from "../PostEmphasis";
@@ -8,22 +9,9 @@ import PostHeader from "../PostHeader";
 import PostListOrdered from "../PostListOrdered";
 import PostListItem from "../PostListItem";
 import PostEmoji from "../PostEmoji";
-import { isLiveEnv } from "../../../utils/helpers";
-import { isFuture } from "../../../utils/dateUtils";
 import { PostContainer, PostBody } from "./styles";
-import Post2 from "../../../posts/en/why-to-become-a-mobile-developer/why-to-become-a-mobile-developer.mdx";
 
-const Post = ({
-  post,
-  post: { title, slug, content, isDraft, date },
-  locale,
-}) => {
-  const visibleFrom = new Date(date);
-
-  // Post remains unpublished when is draft or when date is in the future
-  const isUnpublished =
-    (isLiveEnv && isDraft) || (isLiveEnv && isFuture(visibleFrom));
-
+const Post = ({ post, post: { slug, content }, locale }) => {
   const components = {
     img: (props) => <PostImage slug={slug} locale={locale} {...props} />,
     em: (props) => <PostEmphasis {...props} />,
@@ -38,16 +26,12 @@ const Post = ({
 
   return (
     <>
-      {isUnpublished ? (
-        <p>This post has not yet been published. Please try again later.</p>
-      ) : (
-        <PostContainer>
-          <PostBody>
-            <PostHeader post={post} locale={locale} />
-            <Post2 components={components} />
-          </PostBody>
-        </PostContainer>
-      )}
+      <PostContainer>
+        <PostBody>
+          <PostHeader post={post} locale={locale} />
+          <MDXRemote {...content} components={components} />
+        </PostBody>
+      </PostContainer>
     </>
   );
 };
