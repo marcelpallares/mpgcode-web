@@ -1,4 +1,4 @@
-import MDX from "@mdx-js/runtime";
+// import MDX from "@mdx-js/runtime";
 import PostParagraph from "../PostParagraph";
 import PostLink from "../PostLink";
 import PostEmphasis from "../PostEmphasis";
@@ -44,7 +44,7 @@ const Post = ({
         <PostContainer>
           <PostBody>
             <PostHeader post={post} locale={locale} />
-            <MDX components={components}>{content}</MDX>
+            {/* <MDX components={components}>{content}</MDX> */}
           </PostBody>
         </PostContainer>
       )}
