@@ -1,4 +1,3 @@
-// import MDX from "@mdx-js/runtime";
 import PostParagraph from "../PostParagraph";
 import PostLink from "../PostLink";
 import PostEmphasis from "../PostEmphasis";
@@ -12,6 +11,7 @@ import PostEmoji from "../PostEmoji";
 import { isLiveEnv } from "../../../utils/helpers";
 import { isFuture } from "../../../utils/dateUtils";
 import { PostContainer, PostBody } from "./styles";
+import Post2 from "../../../posts/en/why-to-become-a-mobile-developer/why-to-become-a-mobile-developer.mdx";
 
 const Post = ({
   post,
@@ -44,7 +44,7 @@ const Post = ({
         <PostContainer>
           <PostBody>
             <PostHeader post={post} locale={locale} />
-            {/* <MDX components={components}>{content}</MDX> */}
+            <Post2 components={components} />
           </PostBody>
         </PostContainer>
       )}
