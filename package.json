@@ -8,8 +8,9 @@
     "local": "BUILD_ENV=local next dev -p 1994",
     "test": "BUILD_ENV=test next dev -p 1994",
     "live": "BUILD_ENV=live next dev -p 1994",
+    "build-sitemap": "next-sitemap",
     "build-test": "BUILD_ENV=test next build",
-    "build-live": "BUILD_ENV=live next build & next-sitemap",
+    "build-live": "BUILD_ENV=live next build && build-sitemap",
     "start-test": "BUILD_ENV=test next start",
     "start-live": "BUILD_ENV=live next start"
   },
