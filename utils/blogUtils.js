@@ -12,6 +12,7 @@ export const getAllPosts = ({
 }) => {
   return getPostSlugs({ locales, locale })
     .map(({ slug, locale }) => getPostBySlug({ slug, locale, fields }))
+    .filter((x) => x)
     .sort((post1, post2) => (post1?.date > post2?.date ? "-1" : "1"));
 };
 
@@ -56,10 +57,10 @@ export const getPostBySlug = ({ slug, locale, fields = [] }) => {
       if (data[field]) items[field] = data[field];
     });
 
-    const visibleFrom = new Date(items.date);
+    const visibleFrom = new Date(data.date);
     // Post remains unpublished when is draft or when date is in the future
     const isUnpublished =
-      (isLiveEnv && items.isDraft) || (isLiveEnv && isFuture(visibleFrom));
+      (isLiveEnv && data.isDraft) || (isLiveEnv && isFuture(visibleFrom));
 
     if (isUnpublished) return null;
 
