@@ -11,7 +11,7 @@
     "build-test": "BUILD_ENV=test next build",
     "build-live": "BUILD_ENV=live next build & next-sitemap",
     "start-test": "BUILD_ENV=test next start",
-    "start-live": "BUILD_ENV=live next start",
+    "start-live": "BUILD_ENV=live next start"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.2",
