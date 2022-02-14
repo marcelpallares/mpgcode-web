@@ -5,6 +5,10 @@ const List = styled.ul`
   padding-left: 1em;
   margin-bottom: 4em;
 
+  p {
+    margin-bottom: 0 !important;
+  }
+
   li::marker {
     font-size: 21px;
 

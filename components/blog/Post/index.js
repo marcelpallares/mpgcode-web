@@ -9,6 +9,7 @@ import PostHeader from "../PostHeader";
 import PostListOrdered from "../PostListOrdered";
 import PostListItem from "../PostListItem";
 import PostEmoji from "../PostEmoji";
+import PostCode from "../PostCode";
 import { PostContainer, PostBody } from "./styles";
 
 const Post = ({ post, post: { slug, content }, locale }) => {
@@ -22,6 +23,7 @@ const Post = ({ post, post: { slug, content }, locale }) => {
     ol: (props) => <PostListOrdered {...props} />,
     li: (props) => <PostListItem {...props} />,
     emoji: (props) => <PostEmoji {...props} />,
+    code: (props) => <PostCode {...props} />,
   };
 
   return (

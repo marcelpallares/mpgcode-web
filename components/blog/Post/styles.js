@@ -15,6 +15,15 @@ const PostBody = styled.article`
     text-align: center;
     margin-bottom: 3.5em;
   }
+
+  pre {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  pre + p {
+    margin-top: 1.5em;
+  }
 `;
 
 export { PostContainer, PostBody };
