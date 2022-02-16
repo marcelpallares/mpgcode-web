@@ -16,6 +16,20 @@ const PostBody = styled.article`
     margin-bottom: 3.5em;
   }
 
+  pre {
+    display: grid;
+    width: 100%;
+  }
+
+  pre > div {
+    overflow-y: hidden;
+  }
+
+  pre code {
+    padding: 1em 0;
+    display: block;
+  }
+
   pre + p {
     margin-top: 1.5em;
   }
