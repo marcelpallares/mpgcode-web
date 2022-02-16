@@ -26,7 +26,7 @@ const PostBody = styled.article`
   }
 
   pre code {
-    padding: 1em 0;
+    padding: 1em;
     display: block;
   }
 

@@ -32,7 +32,6 @@ const PostCode = ({ className, children }) => {
       PreTag="div"
       language={className}
       style={androidstudio}
-      showLineNumbers={true}
       wrapLines={true}
     >
       {children}
