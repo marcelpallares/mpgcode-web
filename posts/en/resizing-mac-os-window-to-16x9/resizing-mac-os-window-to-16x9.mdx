@@ -1,9 +1,10 @@
 ---
 title: 'Resizing MacOS window to 16:9 (AppleScript)'
 seoTitle: 'Resizing MacOS window to 16x9 (AppleScript)'
-excerpt: 'Using AppleScript to resize any MacOS app windows to 16:9 aspect ratio.'
+excerpt: 'Using AppleScript to size MacOS app windows to a 16:9 aspect ratio.'
 coverImage: 'screen-recording.gif'
 date: '2022-02-14T10:00:00.000Z'
+localizedSlug: 'reajustar-ventanas-mac-os-16x9'
 isDraft: true
 ---
 
@@ -11,20 +12,20 @@ isDraft: true
 
 Resizing a MacOS app window to 16:9 using AppleScript from the command line.
 
-During the last week, I needed to resize a MacOS app window to a 16:9 aspect ratio because I wanted to screen record on the same ratio of the video canvas of the edit I was working on.
+During the last week, I needed to **resize a MacOS app window to a 16:9 aspect ratio** because I wanted to screen record on the same ratio of the video canvas of the edit I was working on.
 
 I couldn't find much useful information about this topic online, but one nice [post from Ethan Banks](https://ethancbanks.com/using-applescript-to-size-a-window-to-16x9-on-macos/) on how to use AppleScript for the manner gave me what I needed to get started.
 
-I had some extra needs like selecting the application I wanted to resize from a list of apps and making the window full size with a maximum width constraint, so I have decided to write this blog sharing my own implementation. Cheers to [@ecbanks](https://twitter.com/ecbanks) for the initial version 😄
+I had some extra needs like selecting the application I wanted to resize from a list of apps and making the window full size with a maximum width constraint, so I have decided to write this blog sharing my own implementation. Cheers to [@ecbanks](https://twitter.com/ecbanks) for the initial version! 😄
 
-## How to size a MacOS application to 16:9
+## How to size a MacOS window to 16:9
 
 The requirements for this script are:
 * Showing a **list of available windows** to manually select which one to resize.
 * Resizing the selected ones to **16:9 aspect ratio using the maximum width available**.
 * Setting up a **max-width** constraint to avoid too large windows.
 
-This is the code needed to do all of this:
+This is the **AppleScript** code needed to do all of this:
 
 ```js
 # Import needed libraries
@@ -85,5 +86,14 @@ repeat with selectedApp in selectedApps
 end repeat
 ```
 
-You can also find the code on my Github repository in the following link: [Github repo - Resize MacOS window to 16:9](https://github.com/marcelpallares/resize-window-macos)
+You can find the code on my GitHub repository following the link [GitHub repo - Resize MacOS window to 16:9](https://github.com/marcelpallares/resize-window-macos).
 
+To run the code just download the `.scpt` files from GitHub or create your own scrips through **Script Editor** and run them from the **Terminal** with the command:
+
+```shell
+osascript resize-app-window.scpt
+```
+
+Finally, you will need to give Accessibility/Automation permissions to control your computer to the **Terminal/Script Editor** when running the script.
+
+Happy coding!
