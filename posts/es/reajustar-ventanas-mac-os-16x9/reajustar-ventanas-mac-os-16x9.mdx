@@ -3,9 +3,9 @@ title: 'Ajustar ventanas en MacOS a 16:9 (AppleScript)'
 seoTitle: 'Ajustar ventanas en MacOS a 16x9  (AppleScript)'
 excerpt: 'Cómo usar AppleScript para cambiar el tamaño de una ventana en MacOS a 16:9.'
 coverImage: 'screen-recording.gif'
-date: '2022-02-14T10:00:00.000Z'
+date: '2022-02-16T10:00:00.000Z'
 localizedSlug: 'resizing-mac-os-window-to-16x9'
-isDraft: true
+isDraft: false
 ---
 
 <img src="screen-recording.gif" alt="Cambiar el tamaño de una ventana en MacOS a 16x9" width="500" />
@@ -35,13 +35,13 @@ use framework "Foundation"
 use framework "AppKit"
 use scripting additions
 
-# Display selectable list of open applications and save the selection
+# Display selectable list of applications and save selection
 tell application "System Events"
 	set listOfProcesses to (name of every process where background only is false)
 	tell me to set selectedApps to choose from list listOfProcesses with multiple selections allowed
 end tell
 
-# Get the available width and height of the primary screen (minus statusbar and dock)
+# Get the available width and height of the primary screen (minus toolbar and dock)
 set primaryDisplay to current application's NSScreen's screens()'s firstObject()'s visibleFrame()
 set screenWidth to item 1 of item 2 of primaryDisplay as integer
 set screenHeight to item 2 of item 2 of primaryDisplay as integer
@@ -49,35 +49,35 @@ set screenHeight to item 2 of item 2 of primaryDisplay as integer
 # Ratio for our app window
 set ratio to 16 / 9
 
-# The maxWidth we want our window to be
+# Max width we want our app to be
 set maxWidth to 2048 as integer
 
-if screenWidth > maxWidth then
-	set virtualScreenWidth to maxWidth as integer
+# Calculate appWidth based on maxWidth constraint
+set appWidth to screenWidth as integer
+if appWidth > maxWidth then
+	set appWidth to maxWidth as integer
 end if
 
 # Calculate new app height
-set appHeight to virtualScreenWidth / ratio as integer
+set appHeight to appWidth / ratio as integer
 
 # If the calculated height is bigger than screen height, set app height as screen height
-# and calculate the width accordingly
+# and calculate the appWidth accordingly
 if appHeight > screenHeight then
 	set appHeight to screenHeight as integer
 	set appWidth to appHeight * ratio
-else
-	set appWidth to virtualScreenWidth as integer
 end if
 
 # Calculate app screen position (centered)
 set xPos to (screenWidth - appWidth) / 2 as integer
 set yPos to 0 as integer
 
-
 # Loop through selected apps
 repeat with selectedApp in selectedApps
 
 	# Set app position and size to calculated values
 	tell application "System Events" to tell process selectedApp
+
 		tell window 1
 			set position to {xPos, yPos}
 			set size to {appWidth, appHeight}
@@ -95,7 +95,7 @@ Para ejecutar el código primero deberás descargarte el archivo `.scpt` desde m
 Finalmente, ejecuta el script utilizando el siguiente comando en la **Terminal**:
 
 ```shell
-osascript resize-app-window.scpt
+osascript resize-app-window-max-width.scpt
 ```
 
 Deberás dar permisos de Accesibilidad/Automatización para poder controlar tu ordenador a la **Terminal/Script Editor** cuando ejecutes el script.
