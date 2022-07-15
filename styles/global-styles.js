@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    color: #292929;
+    color: ${(props) => props.theme.body};
     margin: 0.6em 0;
   }
 

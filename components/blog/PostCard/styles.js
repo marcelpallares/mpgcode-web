@@ -21,7 +21,7 @@ const PostContainer = styled.article`
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${(props) => props.theme.whiteHover2};
+      background-color: ${(props) => props.theme.whiteHover};
       cursor: pointer;
     }
   }
@@ -49,7 +49,7 @@ const PostTitle = styled.h2`
   line-height: 32px;
 
   a {
-    color: ${(props) => props.theme.black};
+    color: ${(props) => props.theme.body};
   }
 `;
 
